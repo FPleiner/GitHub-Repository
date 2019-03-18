@@ -90,10 +90,10 @@ namespace SWE_Projekt
         }
 
         private bool CountCharsAfterLastDot(string eMailAdress)
-        {
+         {
             string[] split = eMailAdress.Split('@');
-           string trimmed= split[1].TrimStart('.');
-            if (trimmed.Length > 2 && trimmed.Length < 5)
+            string trimmed = split[1].Substring(split[1].LastIndexOf('.')+1);
+            if (trimmed.Length > 1 && trimmed.Length < 5)
             {
                 return true;
             }

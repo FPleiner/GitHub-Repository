@@ -21,8 +21,15 @@ namespace SWE_Projekt
 
         private void createCostumer_Click(object sender, EventArgs e)
         {
+            if(string.IsNullOrWhiteSpace(firstNameTextbox.Text)==false && string.IsNullOrWhiteSpace(lastNameTextbox.Text)==false && NC.CheckEMail(eMailAdressTextbox.Text))
+            {
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Please enter all fields correctly");
+            }
             
-            this.Close();
             
 
         }
@@ -34,6 +41,7 @@ namespace SWE_Projekt
             if (chekEmail)
             {
                 eMailAdressTextbox.BackColor=Color.Green;
+
             }
             else
             {

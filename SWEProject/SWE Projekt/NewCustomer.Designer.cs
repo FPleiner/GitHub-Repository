@@ -79,14 +79,14 @@
             this.lastNameTextbox.Location = new System.Drawing.Point(187, 102);
             this.lastNameTextbox.Name = "lastNameTextbox";
             this.lastNameTextbox.Size = new System.Drawing.Size(157, 20);
-            this.lastNameTextbox.TabIndex = 1;
+            this.lastNameTextbox.TabIndex = 2;
             // 
             // eMailAdressTextbox
             // 
             this.eMailAdressTextbox.Location = new System.Drawing.Point(187, 154);
             this.eMailAdressTextbox.Name = "eMailAdressTextbox";
             this.eMailAdressTextbox.Size = new System.Drawing.Size(157, 20);
-            this.eMailAdressTextbox.TabIndex = 1;
+            this.eMailAdressTextbox.TabIndex = 3;
             this.eMailAdressTextbox.TextChanged += new System.EventHandler(this.eMailAdressTextbox_TextChanged);
             // 
             // createCostumer
@@ -94,7 +94,7 @@
             this.createCostumer.Location = new System.Drawing.Point(187, 306);
             this.createCostumer.Name = "createCostumer";
             this.createCostumer.Size = new System.Drawing.Size(157, 54);
-            this.createCostumer.TabIndex = 2;
+            this.createCostumer.TabIndex = 4;
             this.createCostumer.Text = "Create";
             this.createCostumer.UseVisualStyleBackColor = true;
             this.createCostumer.Click += new System.EventHandler(this.createCostumer_Click);
