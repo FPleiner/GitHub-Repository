@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace SWE_Projekt
 {
-    interface ICostumer
+    interface ICustomer
     {
+        List<string> [] ConnectToDatabase();
         void AddCustomer(string firstName, string lastName, string email, string openBalance);
         void SelectCustomer();
         void CorrectBalance(float amount);

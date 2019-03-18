@@ -9,5 +9,6 @@ namespace SWE_Projekt
     interface IController
     {
          bool CheckEMail(string eMailAdress);
+        bool CheckNumber(string number);
     }
 }

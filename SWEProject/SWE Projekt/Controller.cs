@@ -46,11 +46,7 @@ namespace SWE_Projekt
             {
                 return false;
             }
-            
-            
-           
-
-           
+             
             
         }
 
@@ -113,6 +109,20 @@ namespace SWE_Projekt
             else
             {
                 return false;
+            }
+        }
+
+        public bool CheckNumber(string number)
+        {
+            float parsedValue;
+            if (!float.TryParse(number, out parsedValue))
+            {
+
+                return false;
+            }
+            else
+            {
+                return true;
             }
         }
     }

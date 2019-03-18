@@ -12,11 +12,11 @@ namespace SWE_Projekt
 {
     public partial class CustomerDataForm : Form
     {
-        private DatabaseConnection connection1;
+        ICustomer NCustomer = new Customer();
         public CustomerDataForm()
         {
             InitializeComponent();
-            connection1 = new DatabaseConnection();
+
             dbDisplay.Columns.Add("0", "Customer Number");
             dbDisplay.Columns.Add("1", "First Name");
             dbDisplay.Columns.Add("2", "Last Name");
@@ -27,13 +27,13 @@ namespace SWE_Projekt
 
         private void button1_Click(object sender, EventArgs e)
         {
-            connection1.Connect();
-            SelectCustomer("select * from customer;");
+            List<string> [] list = NCustomer.ConnectToDatabase();
+            UpdateList(list);
+            
         }
-        public void SelectCustomer(string query)
+        public void UpdateList(List<string> [] list)
         {
-            List<string>[] list;
-            list = connection1.Select(query);
+            
 
             
 
@@ -49,7 +49,7 @@ namespace SWE_Projekt
                 dbDisplay.Rows[number].Cells[3].Value = list[3][i];
                 dbDisplay.Rows[number].Cells[4].Value = list[4][i];
                 dbDisplay.Rows[number].Cells[5].Value = list[5][i];
-                dbDisplay.Rows[number].Cells[6].Value = list[6][i];
+
             }
           
         }

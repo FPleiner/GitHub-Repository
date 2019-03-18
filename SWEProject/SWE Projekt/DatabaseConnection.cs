@@ -21,7 +21,7 @@ namespace SWE_Projekt
             }
             public void Connect(/*string connectionsstring*/)
             {
-                connection = new MySqlConnection("SERVER=127.0.0.1" + ";" + "PORT=3306" + ";" + "DATABASE=mydb" + ";" + "UID=admin" + ";" + "PASSWORD=123456" + ";");
+                connection = new MySqlConnection("SERVER=127.0.0.1" + ";" + "PORT=3306" + ";" + "DATABASE=mydb" + ";" + "UID=admin" + ";" + "PASSWORD=123456" + ";"+ "convert zero datetime=True"+";");
                 if (this.OpenConnection() == true)
                 {
                     MessageBox.Show("Connection to Server successfully established:" + connection.DataSource + "\n Database: " + connection.Database);
@@ -30,7 +30,18 @@ namespace SWE_Projekt
 
 
             }
-            public bool OpenConnection()
+        public void ConnectWithoutMessage(/*string connectionsstring*/)
+        {
+            connection = new MySqlConnection("SERVER=127.0.0.1" + ";" + "PORT=3306" + ";" + "DATABASE=mydb" + ";" + "UID=admin" + ";" + "PASSWORD=123456" + ";" + "convert zero datetime=True" + ";");
+            if (this.OpenConnection() == true)
+            {
+                
+                this.CloseConnection();
+            }
+
+
+        }
+        public bool OpenConnection()
             {
                 try
                 {

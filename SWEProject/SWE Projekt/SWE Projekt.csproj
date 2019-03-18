@@ -63,7 +63,7 @@
     <Compile Include="Controller.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="IController.cs" />
-    <Compile Include="ICostumer.cs" />
+    <Compile Include="ICustomer.cs" />
     <Compile Include="DatabaseConnection.cs" />
     <Compile Include="NewCustomer.cs">
       <SubType>Form</SubType>
