@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -11,21 +12,45 @@ namespace SWE_Projekt
     {
         public bool CheckEMail(string eMailAdress)
         {
-            checkAT(eMailAdress);
-            bool exactlyOneAT = eMailAdress.Contains('@');
-            bool atLeastOneDot = false;
-            bool charAfterLastDot = false;
-            bool charBeforeAT = false;
-
-           
-            if(exactlyOneAT &&atLeastOneDot&&charAfterLastDot&&charBeforeAT )
+            ;
+            bool exactlyOneAT = checkAT(eMailAdress);
+            if (exactlyOneAT)
             {
-                return true;
+                bool atLeastOneDot = DotAfterAT(eMailAdress);
+                if (atLeastOneDot)
+                {
+                bool charAfterLastDot = CountCharsAfterLastDot(eMailAdress);
+                    if (charAfterLastDot)
+                    {
+                        bool charBeforeAT = CharBeforeAT(eMailAdress);
+                        if (charBeforeAT)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    return false;
+                }
             }
             else
             {
                 return false;
             }
+            
+            
+           
+
+           
             
         }
 
@@ -49,6 +74,46 @@ namespace SWE_Projekt
             }
             
 
+        }
+
+        private bool DotAfterAT(string eMailAdress)
+        {
+            string[] split = eMailAdress.Split('@');
+            if (split[1].Contains('.'))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private bool CountCharsAfterLastDot(string eMailAdress)
+        {
+            string[] split = eMailAdress.Split('@');
+           string trimmed= split[1].TrimStart('.');
+            if (trimmed.Length > 2 && trimmed.Length < 5)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private bool CharBeforeAT(string eMailAdress)
+        {
+            string[] split = eMailAdress.Split('@');
+            if (split[0].Length > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
