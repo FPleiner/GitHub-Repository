@@ -53,5 +53,12 @@ namespace SWE_Projekt
             }
           
         }
+
+        private void newCustomer_Click(object sender, EventArgs e)
+        {
+            Form m = new NewCustomer();
+            m.ShowDialog();
+            
+        }
     }
 }

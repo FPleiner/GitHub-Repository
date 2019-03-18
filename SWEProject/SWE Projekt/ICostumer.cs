@@ -13,9 +13,10 @@ namespace SWE_Projekt
         void CorrectBalance(float amount);
         void FilterCustomer(string criteria);
         void ChangeCustomer(string customerNumber, string whatToChange, string value);
-        void Test();
 
+        
 
+    
     }
     
 }

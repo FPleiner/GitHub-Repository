@@ -65,16 +65,25 @@
     <Compile Include="IController.cs" />
     <Compile Include="ICostumer.cs" />
     <Compile Include="DatabaseConnection.cs" />
-    <Compile Include="SWE Project.cs">
+    <Compile Include="NewCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SWE Project.Designer.cs">
-      <DependentUpon>SWE Project.cs</DependentUpon>
+    <Compile Include="NewCustomer.Designer.cs">
+      <DependentUpon>NewCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Hauptfenster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Hauptfenster.Designer.cs">
+      <DependentUpon>Hauptfenster.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="SWE Project.resx">
-      <DependentUpon>SWE Project.cs</DependentUpon>
+    <EmbeddedResource Include="NewCustomer.resx">
+      <DependentUpon>NewCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Hauptfenster.resx">
+      <DependentUpon>Hauptfenster.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
