@@ -28,6 +28,7 @@ namespace SWE_Projekt
                 
                 NCostumer.AddCustomer(firstNameTextbox.Text, lastNameTextbox.Text, eMailAdressTextbox.Text, balanceTextbox.Text);
                 this.Close();
+               
             }
             else
             {

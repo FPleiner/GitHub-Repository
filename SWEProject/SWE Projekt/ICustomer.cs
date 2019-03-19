@@ -8,9 +8,9 @@ namespace SWE_Projekt
 {
     interface ICustomer
     {
-        List<string> [] ConnectToDatabase();
+        void ConnectToDatabase();
         void AddCustomer(string firstName, string lastName, string email, string openBalance);
-        void SelectCustomer();
+        List<string>[] SelectAllCustomer();
         void CorrectBalance(float amount);
         void FilterCustomer(string criteria);
         void ChangeCustomer(string customerNumber, string whatToChange, string value);

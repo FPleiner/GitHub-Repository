@@ -27,7 +27,8 @@ namespace SWE_Projekt
 
         private void button1_Click(object sender, EventArgs e)
         {
-            List<string> [] list = NCustomer.ConnectToDatabase();
+             NCustomer.ConnectToDatabase();
+            List<string>[] list = NCustomer.SelectAllCustomer();
             UpdateList(list);
             
         }
@@ -58,7 +59,9 @@ namespace SWE_Projekt
         {
             Form m = new NewCustomer();
             m.ShowDialog();
-            
+            List<string>[] list = NCustomer.SelectAllCustomer();
+            UpdateList(list);
+
         }
     }
 }
