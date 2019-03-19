@@ -19,7 +19,12 @@ namespace SWE_Projekt
          {
             //convert the incoming string into decimal number with '.' instead of ',' and 2 digits after the dot.
             openBalance=openBalance.Replace(',', '.');
-            openBalance= openBalance.Remove(openBalance.IndexOf('.') + 3);
+            
+            if (openBalance.Contains('.')&& openBalance.Substring(openBalance.LastIndexOf('.')).Length>3)
+            {
+               openBalance= openBalance.Remove(openBalance.IndexOf('.') + 3);  
+            }
+           
 
 
             string query = "INSERT INTO Customer(FirstName, LastName, EmailAdress, OpenBalance, LastChange) VALUES('"+firstName+"', '"+lastName+"', '"+email+"', '"+openBalance+"','"+ DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss")+"');";
@@ -36,9 +41,33 @@ namespace SWE_Projekt
             return list;
         }
 
-        public void CorrectBalance(float amount)
+        public void CorrectBalance(string customerNumber,string amount)
         {
-            throw new NotImplementedException();
+            string openBalance=amount;
+            if (amount.Contains(',')&&amount.Substring(amount.LastIndexOf(',')).Length > 3)
+            {
+                openBalance = amount.Remove(amount.IndexOf(',') + 3);
+            }
+
+            List<string>[] list = connection.Select("Select * From customer WHERE CustomerNumber ='" + customerNumber + "';");
+            string number = "0";
+            foreach (string var in list[4])
+            {
+                 number = var;
+            }
+
+            float amountDB;
+            float.TryParse(number,out amountDB);
+            float enteredAmount;
+            float.TryParse(openBalance, out enteredAmount);
+            float newAmount = amountDB + enteredAmount;
+            string newDB = newAmount.ToString().Replace(',', '.');
+            if (newDB.Contains('.'))
+            {
+                newDB = newDB.Remove(openBalance.IndexOf('.') + 3);
+            }
+            connection.Update("update customer set OpenBalance = '" + newDB + "' where CustomerNumber = '" + customerNumber + "';");
+            
         }
 
        
@@ -70,6 +99,11 @@ namespace SWE_Projekt
         public void CloseConnection()
         {
             connection.CloseConnection();
+        }
+
+        public void ConnectWithoutMessage()
+        {
+            connection.ConnectWithoutMessage();
         }
 
         public List<string>[] FilterCustomerNumber(string criteria)
@@ -111,6 +145,13 @@ namespace SWE_Projekt
         {
             List<string>[] list;
             list = connection.Select("select * from customer where LastChange like '%" + criteria + "%';");
+            return list;
+        }
+
+        public List<string>[] FilterCustomerNumberAndEMail(string Number, string EMail)
+        {
+            List<string>[] list;
+            list = connection.Select("select * from customer where CustomerNumber like '%" + Number + "%' AND EmailAdress like '%"+ EMail +"%';");
             return list;
         }
     }

@@ -47,6 +47,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusConnectionLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.exitButton = new System.Windows.Forms.Button();
+            this.manageMoneyButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dbDisplay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerNumberSearchUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.openBalanceSearchUpDown)).BeginInit();
@@ -84,7 +86,7 @@
             // 
             // deleteCustomer
             // 
-            this.deleteCustomer.Location = new System.Drawing.Point(12, 136);
+            this.deleteCustomer.Location = new System.Drawing.Point(12, 288);
             this.deleteCustomer.Name = "deleteCustomer";
             this.deleteCustomer.Size = new System.Drawing.Size(115, 35);
             this.deleteCustomer.TabIndex = 0;
@@ -229,11 +231,33 @@
             this.toolStripStatusConnectionLabel.Size = new System.Drawing.Size(257, 17);
             this.toolStripStatusConnectionLabel.Text = "Not Connected! Please connect to the database";
             // 
+            // exitButton
+            // 
+            this.exitButton.Location = new System.Drawing.Point(12, 680);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(115, 35);
+            this.exitButton.TabIndex = 18;
+            this.exitButton.Text = "Exit";
+            this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            // 
+            // manageMoneyButton
+            // 
+            this.manageMoneyButton.Location = new System.Drawing.Point(12, 136);
+            this.manageMoneyButton.Name = "manageMoneyButton";
+            this.manageMoneyButton.Size = new System.Drawing.Size(115, 35);
+            this.manageMoneyButton.TabIndex = 19;
+            this.manageMoneyButton.Text = "Manage Money";
+            this.manageMoneyButton.UseVisualStyleBackColor = true;
+            this.manageMoneyButton.Click += new System.EventHandler(this.manageMoneyButton_Click);
+            // 
             // CustomerDataForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1362, 771);
+            this.Controls.Add(this.manageMoneyButton);
+            this.Controls.Add(this.exitButton);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -285,6 +309,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusConnectionLabel;
+        private System.Windows.Forms.Button exitButton;
+        private System.Windows.Forms.Button manageMoneyButton;
     }
 }
 

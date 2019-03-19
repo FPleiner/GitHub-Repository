@@ -22,7 +22,7 @@ namespace SWE_Projekt
             dbDisplay.Columns.Add("0", "Customer Number");
             dbDisplay.Columns.Add("1", "First Name");
             dbDisplay.Columns.Add("2", "Last Name");
-            dbDisplay.Columns.Add("3", "E-Mail Adress");
+            dbDisplay.Columns.Add("3", "E-Mail Address");
             dbDisplay.Columns.Add("4", "Open Balance [€]");
             dbDisplay.Columns.Add("5", "Last Change");
             dbDisplay.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -37,7 +37,8 @@ namespace SWE_Projekt
             openBalanceSearchUpDown.Enabled = false;
             lastChangeSearchDatetimePicker.Enabled = false;
             resetSearchButton.Enabled = false;
-            
+            manageMoneyButton.Enabled = false;
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -57,6 +58,7 @@ namespace SWE_Projekt
                 openBalanceSearchUpDown.Enabled = false;
                 lastChangeSearchDatetimePicker.Enabled = false;
                 resetSearchButton.Enabled = false;
+                manageMoneyButton.Enabled = false;
 
                 NCustomer.CloseConnection();
                 ConnectionButton.Text = "Connect";
@@ -85,6 +87,7 @@ namespace SWE_Projekt
                     openBalanceSearchUpDown.Enabled = true;
                     lastChangeSearchDatetimePicker.Enabled = true;
                     resetSearchButton.Enabled = true;
+                    manageMoneyButton.Enabled = true;
 
                     ConnectionButton.Text = "Disconnect";
                 }
@@ -186,6 +189,19 @@ namespace SWE_Projekt
             List<string>[] list = NCustomer.SelectAllCustomer();
             UpdateList(list);
 
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void manageMoneyButton_Click(object sender, EventArgs e)
+        {
+            Form m = new ManageMoney();
+            m.ShowDialog();
+            List<string>[] list = NCustomer.SelectAllCustomer();
+            UpdateList(list);
         }
     }
 }
