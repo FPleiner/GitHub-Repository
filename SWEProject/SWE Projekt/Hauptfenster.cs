@@ -21,7 +21,7 @@ namespace SWE_Projekt
             dbDisplay.Columns.Add("1", "First Name");
             dbDisplay.Columns.Add("2", "Last Name");
             dbDisplay.Columns.Add("3", "E-Mail Adress");
-            dbDisplay.Columns.Add("4", "Open Balance");
+            dbDisplay.Columns.Add("4", "Open Balance [€]");
             dbDisplay.Columns.Add("5", "Last Change");
         }
 
@@ -63,5 +63,9 @@ namespace SWE_Projekt
             UpdateList(list);
 
         }
-    }
+        private void deleteCustomer_Click(object sender, EventArgs e)
+        {
+
+        }
+        }
 }
