@@ -25,10 +25,16 @@ namespace SWE_Projekt
 
             if(string.IsNullOrWhiteSpace(firstNameTextbox.Text)==false && string.IsNullOrWhiteSpace(lastNameTextbox.Text)==false && NC.CheckEMail(eMailAdressTextbox.Text)&&NC.CheckNumber(balanceTextbox.Text))
             {
-                
-                NCostumer.AddCustomer(firstNameTextbox.Text, lastNameTextbox.Text, eMailAdressTextbox.Text, balanceTextbox.Text);
-                this.Close();
-               
+                if (NCostumer.CheckUnique(eMailAdressTextbox.Text))
+                {
+                    NCostumer.AddCustomer(firstNameTextbox.Text, lastNameTextbox.Text, eMailAdressTextbox.Text,
+                        balanceTextbox.Text);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("E-Mail address is already used");
+                }
             }
             else
             {

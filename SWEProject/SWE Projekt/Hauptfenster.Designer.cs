@@ -32,7 +32,25 @@
             this.dbDisplay = new System.Windows.Forms.DataGridView();
             this.newCustomer = new System.Windows.Forms.Button();
             this.deleteCustomer = new System.Windows.Forms.Button();
+            this.firstNameSearchTextbox = new System.Windows.Forms.TextBox();
+            this.lastNameSearchTextbox = new System.Windows.Forms.TextBox();
+            this.eMailAddressSearchTextbox = new System.Windows.Forms.TextBox();
+            this.lastChangeSearchDatetimePicker = new System.Windows.Forms.DateTimePicker();
+            this.customerNumberSearchUpDown = new System.Windows.Forms.NumericUpDown();
+            this.openBalanceSearchUpDown = new System.Windows.Forms.NumericUpDown();
+            this.resetSearchButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusConnectionLabel = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dbDisplay)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customerNumberSearchUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.openBalanceSearchUpDown)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // ConnectionButton
@@ -48,7 +66,7 @@
             // dbDisplay
             // 
             this.dbDisplay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dbDisplay.Location = new System.Drawing.Point(150, 12);
+            this.dbDisplay.Location = new System.Drawing.Point(150, 69);
             this.dbDisplay.Name = "dbDisplay";
             this.dbDisplay.RowHeadersWidth = 100;
             this.dbDisplay.Size = new System.Drawing.Size(1200, 646);
@@ -74,11 +92,162 @@
             this.deleteCustomer.UseVisualStyleBackColor = true;
             this.deleteCustomer.Click += new System.EventHandler(this.deleteCustomer_Click);
             // 
+            // firstNameSearchTextbox
+            // 
+            this.firstNameSearchTextbox.Location = new System.Drawing.Point(435, 42);
+            this.firstNameSearchTextbox.Name = "firstNameSearchTextbox";
+            this.firstNameSearchTextbox.Size = new System.Drawing.Size(143, 20);
+            this.firstNameSearchTextbox.TabIndex = 3;
+            this.firstNameSearchTextbox.TextChanged += new System.EventHandler(this.firstNameSearchTextbox_TextChanged);
+            // 
+            // lastNameSearchTextbox
+            // 
+            this.lastNameSearchTextbox.Location = new System.Drawing.Point(622, 42);
+            this.lastNameSearchTextbox.Name = "lastNameSearchTextbox";
+            this.lastNameSearchTextbox.Size = new System.Drawing.Size(143, 20);
+            this.lastNameSearchTextbox.TabIndex = 4;
+            this.lastNameSearchTextbox.TextChanged += new System.EventHandler(this.lastNameSearchTextbox_TextChanged);
+            // 
+            // eMailAddressSearchTextbox
+            // 
+            this.eMailAddressSearchTextbox.Location = new System.Drawing.Point(806, 42);
+            this.eMailAddressSearchTextbox.Name = "eMailAddressSearchTextbox";
+            this.eMailAddressSearchTextbox.Size = new System.Drawing.Size(143, 20);
+            this.eMailAddressSearchTextbox.TabIndex = 5;
+            this.eMailAddressSearchTextbox.TextChanged += new System.EventHandler(this.eMailAddressSearchTextbox_TextChanged);
+            // 
+            // lastChangeSearchDatetimePicker
+            // 
+            this.lastChangeSearchDatetimePicker.Location = new System.Drawing.Point(1150, 42);
+            this.lastChangeSearchDatetimePicker.Name = "lastChangeSearchDatetimePicker";
+            this.lastChangeSearchDatetimePicker.Size = new System.Drawing.Size(200, 20);
+            this.lastChangeSearchDatetimePicker.TabIndex = 8;
+            this.lastChangeSearchDatetimePicker.ValueChanged += new System.EventHandler(this.lastChangeSearchDatetimePicker_ValueChanged);
+            // 
+            // customerNumberSearchUpDown
+            // 
+            this.customerNumberSearchUpDown.Location = new System.Drawing.Point(262, 42);
+            this.customerNumberSearchUpDown.Name = "customerNumberSearchUpDown";
+            this.customerNumberSearchUpDown.Size = new System.Drawing.Size(142, 20);
+            this.customerNumberSearchUpDown.TabIndex = 9;
+            this.customerNumberSearchUpDown.ValueChanged += new System.EventHandler(this.customerNumberSearchUpDown_ValueChanged);
+            // 
+            // openBalanceSearchUpDown
+            // 
+            this.openBalanceSearchUpDown.Location = new System.Drawing.Point(992, 42);
+            this.openBalanceSearchUpDown.Name = "openBalanceSearchUpDown";
+            this.openBalanceSearchUpDown.Size = new System.Drawing.Size(142, 20);
+            this.openBalanceSearchUpDown.TabIndex = 10;
+            this.openBalanceSearchUpDown.ValueChanged += new System.EventHandler(this.openBalanceSearchUpDown_ValueChanged);
+            // 
+            // resetSearchButton
+            // 
+            this.resetSearchButton.Location = new System.Drawing.Point(132, 12);
+            this.resetSearchButton.Name = "resetSearchButton";
+            this.resetSearchButton.Size = new System.Drawing.Size(115, 35);
+            this.resetSearchButton.TabIndex = 11;
+            this.resetSearchButton.Text = "Reset Search";
+            this.resetSearchButton.UseVisualStyleBackColor = true;
+            this.resetSearchButton.Click += new System.EventHandler(this.resetSearchButton_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(258, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(138, 20);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Customer Number";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(431, 12);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(86, 20);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "First Name";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(618, 12);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(86, 20);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Last Name";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(802, 12);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(116, 20);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "E-Mail Address";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(988, 12);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(110, 20);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "Open Balance";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(1146, 12);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(148, 20);
+            this.label6.TabIndex = 16;
+            this.label6.Text = "Date of last change";
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusConnectionLabel});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 749);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.statusStrip1.Size = new System.Drawing.Size(1362, 22);
+            this.statusStrip1.TabIndex = 17;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusConnectionLabel
+            // 
+            this.toolStripStatusConnectionLabel.BackColor = System.Drawing.Color.Red;
+            this.toolStripStatusConnectionLabel.Name = "toolStripStatusConnectionLabel";
+            this.toolStripStatusConnectionLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.toolStripStatusConnectionLabel.Size = new System.Drawing.Size(257, 17);
+            this.toolStripStatusConnectionLabel.Text = "Not Connected! Please connect to the database";
+            // 
             // CustomerDataForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1362, 771);
+            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.resetSearchButton);
+            this.Controls.Add(this.openBalanceSearchUpDown);
+            this.Controls.Add(this.customerNumberSearchUpDown);
+            this.Controls.Add(this.lastChangeSearchDatetimePicker);
+            this.Controls.Add(this.eMailAddressSearchTextbox);
+            this.Controls.Add(this.lastNameSearchTextbox);
+            this.Controls.Add(this.firstNameSearchTextbox);
             this.Controls.Add(this.dbDisplay);
             this.Controls.Add(this.deleteCustomer);
             this.Controls.Add(this.newCustomer);
@@ -86,7 +255,12 @@
             this.Name = "CustomerDataForm";
             this.Text = "SWE Project";
             ((System.ComponentModel.ISupportInitialize)(this.dbDisplay)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customerNumberSearchUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.openBalanceSearchUpDown)).EndInit();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -96,6 +270,21 @@
         private System.Windows.Forms.DataGridView dbDisplay;
         private System.Windows.Forms.Button newCustomer;
         private System.Windows.Forms.Button deleteCustomer;
+        private System.Windows.Forms.TextBox firstNameSearchTextbox;
+        private System.Windows.Forms.TextBox lastNameSearchTextbox;
+        private System.Windows.Forms.TextBox eMailAddressSearchTextbox;
+        private System.Windows.Forms.DateTimePicker lastChangeSearchDatetimePicker;
+        private System.Windows.Forms.NumericUpDown customerNumberSearchUpDown;
+        private System.Windows.Forms.NumericUpDown openBalanceSearchUpDown;
+        private System.Windows.Forms.Button resetSearchButton;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusConnectionLabel;
     }
 }
 
