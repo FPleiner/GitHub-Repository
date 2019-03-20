@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace SWE_Projekt
 {
@@ -26,6 +27,7 @@ namespace SWE_Projekt
             dataGridSearch.Columns.Add("3", "Open Balance [€]");
             dataGridSearch.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
+            
             enteredAmountTextbox.Enabled = false;
             dataGridSearch.Hide();
         }
@@ -83,7 +85,7 @@ namespace SWE_Projekt
             eMailAddressTextbox.Enabled = true;
             customerNumberUpDown.Enabled = true;
             enteredAmountTextbox.Enabled = false;
-
+            eMailAddressTextbox.BackColor = default(Color);
             eMailAddressTextbox.Text = "";
             customerNumberUpDown.Text = "";
             enteredAmountTextbox.Text = "";

@@ -19,6 +19,7 @@ namespace SWE_Projekt
             InitializeComponent();
             lastChangeSearchDatetimePicker.Format = DateTimePickerFormat.Custom;
             lastChangeSearchDatetimePicker.CustomFormat = "yyyy-MM-dd";
+
             dbDisplay.Columns.Add("0", "Customer Number");
             dbDisplay.Columns.Add("1", "First Name");
             dbDisplay.Columns.Add("2", "Last Name");

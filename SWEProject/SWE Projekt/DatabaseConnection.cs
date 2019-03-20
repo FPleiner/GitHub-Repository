@@ -24,7 +24,7 @@ namespace SWE_Projekt
                 connection = new MySqlConnection("SERVER=127.0.0.1" + ";" + "PORT=3306" + ";" + "DATABASE=mydb" + ";" + "UID=admin" + ";" + "PASSWORD=123456" + ";"+ "convert zero datetime=True"+";");
                 if (this.OpenConnection() == true)
                 {
-                    MessageBox.Show("Connection to Server successfully established:" + connection.DataSource + "\n Database: " + connection.Database);
+                   // MessageBox.Show("Connection to Server successfully established:" + connection.DataSource + "\n Database: " + connection.Database);
                     this.CloseConnection();
                 }
 

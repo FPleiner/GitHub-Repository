@@ -86,7 +86,7 @@
             // 
             // deleteCustomer
             // 
-            this.deleteCustomer.Location = new System.Drawing.Point(12, 288);
+            this.deleteCustomer.Location = new System.Drawing.Point(12, 617);
             this.deleteCustomer.Name = "deleteCustomer";
             this.deleteCustomer.Size = new System.Drawing.Size(115, 35);
             this.deleteCustomer.TabIndex = 0;
