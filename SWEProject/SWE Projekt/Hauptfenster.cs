@@ -39,6 +39,7 @@ namespace SWE_Projekt
             lastChangeSearchDatetimePicker.Enabled = false;
             resetSearchButton.Enabled = false;
             manageMoneyButton.Enabled = false;
+            deleteCustomer.Enabled = false;
 
         }
 
