@@ -9,15 +9,17 @@ namespace SWE_Projekt
     interface ICustomer
     {
         void ConnectToDatabase();
-        void AddCustomer(string firstName, string lastName, string email, string openBalance);
+        void AddCustomer(string firstName, string lastName, string email, string openBalance,string street,string houseNumber,string postalcode,string town);
         List<string>[] SelectAllCustomer();
         void CorrectBalance(string customerNumber,string amount);
 
-        void ChangeCustomer(string customerNumber, string whatToChange, string value);
+        bool CheckBalance(string customerNumber);
         bool CheckUnique(string eMailAdress);
         bool TestConnection(string connectionstring);
         void CloseConnection();
         void ConnectWithoutMessage();
+        void EditAddress(string costumerNumber, string street, string houseNumber, string postalCode, string town);
+        void DeleteCustomer(string costumerNumber);
 
         List<string>[] FilterCustomerNumber(string criteria);
         List<string>[] FilterFirstName(string criteria);

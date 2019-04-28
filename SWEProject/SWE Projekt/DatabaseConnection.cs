@@ -93,17 +93,21 @@ namespace SWE_Projekt
             public List<string>[] Select(string query)
             {
                 //Create a list to store the result
-                List<string>[] list = new List<string>[7];
+                List<string>[] list = new List<string>[10];
                 list[0] = new List<string>();
                 list[1] = new List<string>();
                 list[2] = new List<string>();
                 list[3] = new List<string>();
                 list[4] = new List<string>();
                 list[5] = new List<string>();
+                list[6] = new List<string>();
+                list[7] = new List<string>();
+                list[8] = new List<string>();
+                list[9] = new List<string>();
 
 
-                //Open connection
-                if (this.OpenConnection() == true)
+            //Open connection
+            if (this.OpenConnection() == true)
                 {
                     //Create Command
                     MySqlCommand cmd = new MySqlCommand(query, connection);
@@ -118,11 +122,15 @@ namespace SWE_Projekt
                         list[2].Add(dataReader["LastName"] + "");
                         list[3].Add(dataReader["EmailAdress"] + "");
                         list[4].Add(dataReader["OpenBalance"] + "");
-                        list[5].Add(dataReader["LastChange"] + "");
+                        list[5].Add(dataReader["Street"] + "");
+                        list[6].Add(dataReader["HouseNumber"] + "");
+                        list[7].Add(dataReader["PostalCode"] + "");
+                        list[8].Add(dataReader["Town"] + "");
+                        list[9].Add(dataReader["LastChange"] + "");
 
 
 
-                    }
+                }
 
                     //close Data Reader
                     dataReader.Close();

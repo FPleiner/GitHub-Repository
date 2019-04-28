@@ -4,9 +4,12 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using  System.IO;
+using System.Windows.Forms.VisualStyles;
 
 namespace SWE_Projekt
 {
@@ -14,9 +17,15 @@ namespace SWE_Projekt
     {
         bool connect = false;
         ICustomer NCustomer = new Customer();
+        IController Controller= new Controller();
         public CustomerDataForm()
         {
             InitializeComponent();
+            string path;
+            path = Path.GetFullPath("log.txt");
+            Console.WriteLine(path);
+            
+
             lastChangeSearchDatetimePicker.Format = DateTimePickerFormat.Custom;
             lastChangeSearchDatetimePicker.CustomFormat = "yyyy-MM-dd";
 
@@ -40,6 +49,7 @@ namespace SWE_Projekt
             resetSearchButton.Enabled = false;
             manageMoneyButton.Enabled = false;
             deleteCustomer.Enabled = false;
+            editAddressButton.Enabled = false;
 
         }
 
@@ -61,6 +71,7 @@ namespace SWE_Projekt
                 lastChangeSearchDatetimePicker.Enabled = false;
                 resetSearchButton.Enabled = false;
                 manageMoneyButton.Enabled = false;
+                editAddressButton.Enabled = false;
 
                 NCustomer.CloseConnection();
                 ConnectionButton.Text = "Connect";
@@ -90,6 +101,7 @@ namespace SWE_Projekt
                     lastChangeSearchDatetimePicker.Enabled = true;
                     resetSearchButton.Enabled = true;
                     manageMoneyButton.Enabled = true;
+                    editAddressButton.Enabled = true;
 
                     ConnectionButton.Text = "Disconnect";
                 }
@@ -121,7 +133,7 @@ namespace SWE_Projekt
                 dbDisplay.Rows[number].Cells[2].Value = list[2][i];
                 dbDisplay.Rows[number].Cells[3].Value = list[3][i];
                 dbDisplay.Rows[number].Cells[4].Value = list[4][i];
-                dbDisplay.Rows[number].Cells[5].Value = list[5][i];
+                dbDisplay.Rows[number].Cells[5].Value = list[9][i];
 
             }
           
@@ -137,7 +149,10 @@ namespace SWE_Projekt
         }
         private void deleteCustomer_Click(object sender, EventArgs e)
         {
-
+            Form m = new DeleteCustomer();
+            m.ShowDialog();
+            List<string>[] list = NCustomer.SelectAllCustomer();
+            UpdateList(list);
         }
 
 
@@ -204,6 +219,12 @@ namespace SWE_Projekt
             m.ShowDialog();
             List<string>[] list = NCustomer.SelectAllCustomer();
             UpdateList(list);
+        }
+
+        private void editAddressButton_Click(object sender, EventArgs e)
+        {
+            Form m = new EditAddress();
+            m.ShowDialog();
         }
     }
 }

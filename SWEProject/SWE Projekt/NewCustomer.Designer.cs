@@ -37,6 +37,15 @@
             this.createCostumer = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.balanceTextbox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.streetNameTextbox = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.houseNumberTextbox = new System.Windows.Forms.TextBox();
+            this.postCodeTextbox = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.townTextbox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // firstName
@@ -96,7 +105,7 @@
             this.createCostumer.Location = new System.Drawing.Point(187, 306);
             this.createCostumer.Name = "createCostumer";
             this.createCostumer.Size = new System.Drawing.Size(157, 54);
-            this.createCostumer.TabIndex = 4;
+            this.createCostumer.TabIndex = 9;
             this.createCostumer.Text = "Create";
             this.createCostumer.UseVisualStyleBackColor = true;
             this.createCostumer.Click += new System.EventHandler(this.createCostumer_Click);
@@ -117,22 +126,111 @@
             this.balanceTextbox.Location = new System.Drawing.Point(187, 204);
             this.balanceTextbox.Name = "balanceTextbox";
             this.balanceTextbox.Size = new System.Drawing.Size(157, 20);
-            this.balanceTextbox.TabIndex = 3;
+            this.balanceTextbox.TabIndex = 4;
             this.balanceTextbox.TextChanged += new System.EventHandler(this.balanceTextbox_TextChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(374, 47);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(86, 20);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "First Name";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(366, 47);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(101, 20);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Street name ";
+            // 
+            // streetNameTextbox
+            // 
+            this.streetNameTextbox.Location = new System.Drawing.Point(486, 49);
+            this.streetNameTextbox.Name = "streetNameTextbox";
+            this.streetNameTextbox.Size = new System.Drawing.Size(157, 20);
+            this.streetNameTextbox.TabIndex = 5;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(366, 102);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(114, 20);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "House number";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(366, 154);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(76, 20);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Postcode";
+            // 
+            // houseNumberTextbox
+            // 
+            this.houseNumberTextbox.Location = new System.Drawing.Point(486, 101);
+            this.houseNumberTextbox.Name = "houseNumberTextbox";
+            this.houseNumberTextbox.Size = new System.Drawing.Size(157, 20);
+            this.houseNumberTextbox.TabIndex = 6;
+            this.houseNumberTextbox.TextChanged += new System.EventHandler(this.houseNumberTextbox_TextChanged);
+            // 
+            // postCodeTextbox
+            // 
+            this.postCodeTextbox.Location = new System.Drawing.Point(486, 154);
+            this.postCodeTextbox.Name = "postCodeTextbox";
+            this.postCodeTextbox.Size = new System.Drawing.Size(157, 20);
+            this.postCodeTextbox.TabIndex = 7;
+            this.postCodeTextbox.TextChanged += new System.EventHandler(this.postCodeTextbox_TextChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(366, 204);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(47, 20);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Town";
+            // 
+            // townTextbox
+            // 
+            this.townTextbox.Location = new System.Drawing.Point(486, 204);
+            this.townTextbox.Name = "townTextbox";
+            this.townTextbox.Size = new System.Drawing.Size(157, 20);
+            this.townTextbox.TabIndex = 8;
             // 
             // NewCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(416, 395);
+            this.ClientSize = new System.Drawing.Size(695, 395);
             this.Controls.Add(this.createCostumer);
             this.Controls.Add(this.balanceTextbox);
             this.Controls.Add(this.eMailAdressTextbox);
             this.Controls.Add(this.lastNameTextbox);
+            this.Controls.Add(this.townTextbox);
+            this.Controls.Add(this.postCodeTextbox);
+            this.Controls.Add(this.houseNumberTextbox);
+            this.Controls.Add(this.streetNameTextbox);
             this.Controls.Add(this.firstNameTextbox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.eMailAdress);
             this.Controls.Add(this.lastName);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.firstName);
             this.Name = "NewCustomer";
             this.Text = "New Customer";
@@ -152,5 +250,14 @@
         private System.Windows.Forms.Button createCostumer;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox balanceTextbox;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox streetNameTextbox;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox houseNumberTextbox;
+        private System.Windows.Forms.TextBox postCodeTextbox;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox townTextbox;
     }
 }

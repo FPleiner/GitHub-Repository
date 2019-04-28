@@ -62,6 +62,18 @@
   <ItemGroup>
     <Compile Include="Controller.cs" />
     <Compile Include="Customer.cs" />
+    <Compile Include="DeleteCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteCustomer.Designer.cs">
+      <DependentUpon>DeleteCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditAddress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditAddress.Designer.cs">
+      <DependentUpon>EditAddress.cs</DependentUpon>
+    </Compile>
     <Compile Include="IController.cs" />
     <Compile Include="ICustomer.cs" />
     <Compile Include="DatabaseConnection.cs" />
@@ -85,6 +97,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DeleteCustomer.resx">
+      <DependentUpon>DeleteCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditAddress.resx">
+      <DependentUpon>EditAddress.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ManageMoney.resx">
       <DependentUpon>ManageMoney.cs</DependentUpon>
     </EmbeddedResource>

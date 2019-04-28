@@ -50,6 +50,7 @@
             this.exitButton = new System.Windows.Forms.Button();
             this.manageMoneyButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.editAddressButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dbDisplay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerNumberSearchUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.openBalanceSearchUpDown)).BeginInit();
@@ -88,7 +89,7 @@
             // 
             // deleteCustomer
             // 
-            this.deleteCustomer.Location = new System.Drawing.Point(12, 617);
+            this.deleteCustomer.Location = new System.Drawing.Point(12, 192);
             this.deleteCustomer.Name = "deleteCustomer";
             this.deleteCustomer.Size = new System.Drawing.Size(115, 35);
             this.deleteCustomer.TabIndex = 0;
@@ -245,7 +246,7 @@
             // 
             // manageMoneyButton
             // 
-            this.manageMoneyButton.Location = new System.Drawing.Point(12, 136);
+            this.manageMoneyButton.Location = new System.Drawing.Point(12, 110);
             this.manageMoneyButton.Name = "manageMoneyButton";
             this.manageMoneyButton.Size = new System.Drawing.Size(115, 35);
             this.manageMoneyButton.TabIndex = 19;
@@ -274,12 +275,23 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Search Criteria";
             // 
+            // editAddressButton
+            // 
+            this.editAddressButton.Location = new System.Drawing.Point(12, 151);
+            this.editAddressButton.Name = "editAddressButton";
+            this.editAddressButton.Size = new System.Drawing.Size(115, 35);
+            this.editAddressButton.TabIndex = 19;
+            this.editAddressButton.Text = "Edit Address";
+            this.editAddressButton.UseVisualStyleBackColor = true;
+            this.editAddressButton.Click += new System.EventHandler(this.editAddressButton_Click);
+            // 
             // CustomerDataForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1379, 804);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.editAddressButton);
             this.Controls.Add(this.manageMoneyButton);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.statusStrip1);
@@ -326,6 +338,7 @@
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Button manageMoneyButton;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button editAddressButton;
     }
 }
 

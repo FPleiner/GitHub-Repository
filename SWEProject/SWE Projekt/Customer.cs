@@ -15,7 +15,7 @@ namespace SWE_Projekt
             connection.Connect();
             
         }
-        public void AddCustomer(string firstName, string lastName, string email, string openBalance)
+        public void AddCustomer(string firstName, string lastName, string email, string openBalance, string street,string houseNumber,string postalcode,string town)
          {
             //convert the incoming string into decimal number with '.' instead of ',' and 2 digits after the dot.
             openBalance=openBalance.Replace(',', '.');
@@ -27,7 +27,7 @@ namespace SWE_Projekt
            
 
 
-            string query = "INSERT INTO Customer(FirstName, LastName, EmailAdress, OpenBalance, LastChange) VALUES('"+firstName+"', '"+lastName+"', '"+email+"', '"+openBalance+"','"+ DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss")+"');";
+            string query = "INSERT INTO Customer(FirstName, LastName, EmailAdress, OpenBalance, Street, HouseNumber, PostalCode, Town, LastChange) VALUES('"+firstName+"', '"+lastName+"', '"+email+"', '"+openBalance+"','"+street+ "','" +houseNumber+ "','" +postalcode+ "','" +town+ "','" + DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss")+"');";
             
             connection.ConnectWithoutMessage();
             connection.Insert(query);
@@ -70,7 +70,26 @@ namespace SWE_Projekt
             
         }
 
-       
+        public bool CheckBalance(string customerNumber)
+        {
+            List<string>[] list = connection.Select("Select * From customer WHERE CustomerNumber ='" + customerNumber + "';");
+            string number = "0";
+            foreach (string var in list[4])
+            {
+                number = var;
+            }
+
+            if (number == "0")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
         public void ChangeCustomer(string customerNumber, string whatToChange, string value)
         {
             throw new NotImplementedException();
@@ -104,6 +123,11 @@ namespace SWE_Projekt
         public void ConnectWithoutMessage()
         {
             connection.ConnectWithoutMessage();
+        }
+
+        public void DeleteCustomer(string costumerNumber)
+        {
+            connection.Delete("delete from Customer where CustomerNumber = '"+costumerNumber+"';");
         }
 
         public List<string>[] FilterCustomerNumber(string criteria)
@@ -153,6 +177,12 @@ namespace SWE_Projekt
             List<string>[] list;
             list = connection.Select("select * from customer where CustomerNumber like '%" + Number + "%' AND EmailAdress like '%"+ EMail +"%';");
             return list;
+        }
+
+        public void EditAddress(string customerNumber, string street, string houseNumber, string postalcode,
+            string town)
+        {
+            connection.Update("update customer set Street = '"+street+"' , HouseNumber ='"+houseNumber+"' , PostalCode ='"+postalcode+"' , Town = '"+town+"' where CustomerNumber='"+customerNumber+"';");
         }
     }
     

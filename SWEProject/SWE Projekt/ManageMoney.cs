@@ -14,12 +14,13 @@ namespace SWE_Projekt
     
     public partial class ManageMoney : Form
     {
-        IController Controller = new Controller();
-        ICustomer Customer = new Customer();
-        public ManageMoney()
+        IController Controller=new Controller();
+        ICustomer Customer=new Customer();
+        public ManageMoney( )
         {
             InitializeComponent();
-
+            
+           
 
             dataGridSearch.Columns.Add("0", "Customer Number");
             dataGridSearch.Columns.Add("1", "First Name");
@@ -94,7 +95,6 @@ namespace SWE_Projekt
 
         private void enteredAmountTextbox_TextChanged(object sender, EventArgs e)
         {
-            
             if (Controller.CheckNumber(enteredAmountTextbox.Text))
             {
                 enteredAmountTextbox.BackColor = Color.Green;

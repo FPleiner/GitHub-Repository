@@ -23,12 +23,12 @@ namespace SWE_Projekt
         private void createCostumer_Click(object sender, EventArgs e)
         {
 
-            if(string.IsNullOrWhiteSpace(firstNameTextbox.Text)==false && string.IsNullOrWhiteSpace(lastNameTextbox.Text)==false && NC.CheckEMail(eMailAdressTextbox.Text)&&NC.CheckNumber(balanceTextbox.Text))
+            if(string.IsNullOrWhiteSpace(firstNameTextbox.Text)==false && string.IsNullOrWhiteSpace(lastNameTextbox.Text)==false && NC.CheckEMail(eMailAdressTextbox.Text)&&NC.CheckNumber(balanceTextbox.Text)&&string.IsNullOrWhiteSpace(streetNameTextbox.Text)==false&&string.IsNullOrWhiteSpace(houseNumberTextbox.Text)==false&&string.IsNullOrWhiteSpace(postCodeTextbox.Text)==false&&string.IsNullOrWhiteSpace(townTextbox.Text)==false)
             {
                 if (NCostumer.CheckUnique(eMailAdressTextbox.Text))
                 {
                     NCostumer.AddCustomer(firstNameTextbox.Text, lastNameTextbox.Text, eMailAdressTextbox.Text,
-                        balanceTextbox.Text);
+                        balanceTextbox.Text,streetNameTextbox.Text,houseNumberTextbox.Text,postCodeTextbox.Text,townTextbox.Text);
                     this.Close();
                 }
                 else
@@ -58,6 +58,10 @@ namespace SWE_Projekt
             {
                 eMailAdressTextbox.BackColor = Color.Red;
             }
+            if (string.IsNullOrWhiteSpace(eMailAdressTextbox.Text))
+            {
+                eMailAdressTextbox.ResetBackColor();
+            }
         }
         private void balanceTextbox_TextChanged(object sender, EventArgs e)
         {
@@ -67,16 +71,72 @@ namespace SWE_Projekt
             if (checkNumber)
             {
                 balanceTextbox.BackColor = Color.Green;
-
+                createCostumer.Enabled = true;
             }
             else
             {
                 balanceTextbox.BackColor = Color.Red;
+                createCostumer.Enabled = false;
+            }
+            if (string.IsNullOrWhiteSpace(balanceTextbox.Text))
+            {
+                balanceTextbox.ResetBackColor();
             }
         }
             private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void postCodeTextbox_TextChanged(object sender, EventArgs e)
+        {
+            bool checkNumber = NC.CheckNumber(postCodeTextbox.Text);
+
+            if (checkNumber)
+            {
+                postCodeTextbox.BackColor = Color.Green;
+                createCostumer.Enabled = true;
+            }
+            else
+            {
+                postCodeTextbox.BackColor = Color.Red;
+                createCostumer.Enabled = false;
+            }
+
+            if (string.IsNullOrWhiteSpace(postCodeTextbox.Text))
+            {
+                postCodeTextbox.ResetBackColor();
+            }
+        }
+
+        private void houseNumberTextbox_TextChanged(object sender, EventArgs e)
+        {
+            bool checkNumber = NC.CheckNumber(houseNumberTextbox.Text);
+
+            if (checkNumber)
+            {
+                houseNumberTextbox.BackColor = Color.Green;
+                createCostumer.Enabled = true;
+            }
+            else
+            {
+                houseNumberTextbox.BackColor = Color.Red;
+                createCostumer.Enabled = false;
+            }
+            if (string.IsNullOrWhiteSpace(houseNumberTextbox.Text))
+            {
+                houseNumberTextbox.ResetBackColor();
+            }
         }
     }
 }
