@@ -10,7 +10,7 @@ namespace SWE_Projekt
 {
     class Controller : IController
     {
-        public bool CheckEMail(string eMailAdress)
+        public bool CheckEMail(string eMailAdress) //checks if the given email address is valid according to the given standard
         {
             ;
             bool exactlyOneAT = checkAT(eMailAdress);
@@ -50,7 +50,7 @@ namespace SWE_Projekt
             
         }
 
-        private bool checkAT(string eMailAdress)
+        private bool checkAT(string eMailAdress) //checks for @
         {
             if (eMailAdress.Contains('@'))
             {
@@ -72,7 +72,7 @@ namespace SWE_Projekt
 
         }
 
-        private bool DotAfterAT(string eMailAdress)
+        private bool DotAfterAT(string eMailAdress) //checks for the dot after @
         {
             string[] split = eMailAdress.Split('@');
             if (split[1].Contains('.'))
@@ -85,7 +85,7 @@ namespace SWE_Projekt
             }
         }
 
-        private bool CountCharsAfterLastDot(string eMailAdress)
+        private bool CountCharsAfterLastDot(string eMailAdress) //checks for the country letters after last dot
          {
             string[] split = eMailAdress.Split('@');
             string trimmed = split[1].Substring(split[1].LastIndexOf('.')+1);
@@ -99,7 +99,7 @@ namespace SWE_Projekt
             }
         }
 
-        private bool CharBeforeAT(string eMailAdress)
+        private bool CharBeforeAT(string eMailAdress) //checks if there are letters before @
         {
             string[] split = eMailAdress.Split('@');
             if (split[0].Length > 0)
@@ -112,7 +112,7 @@ namespace SWE_Projekt
             }
         }
 
-        public bool CheckNumber(string number)
+        public bool CheckNumber(string number) //checks if given string is a number or not
         {
             float parsedValue;
             if (!float.TryParse(number, out parsedValue))

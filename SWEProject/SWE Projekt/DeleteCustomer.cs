@@ -23,7 +23,7 @@ namespace SWE_Projekt
             
            
 
-
+            //initializes datagrid with correct parameters
             dataGridSearch.Columns.Add("0", "Customer Number");
             dataGridSearch.Columns.Add("1", "First Name");
             dataGridSearch.Columns.Add("2", "Last Name");
@@ -36,7 +36,7 @@ namespace SWE_Projekt
         }
 
        
-        public void UpdateList(List<string>[] list)
+        public void UpdateList(List<string>[] list) //updates the datagrid by getting the newest list from the database
         {
             int count = list[0].Count;
             dataGridSearch.Rows.Clear();
@@ -55,7 +55,7 @@ namespace SWE_Projekt
 
      
 
-        private void deleteButton_Click(object sender, EventArgs e)
+        private void deleteButton_Click(object sender, EventArgs e)//deletes the customer from the system. OR shows error if the open balance is not 0
         {
             if (!(customerNumberUpDown.Text == "0"))
             {
@@ -80,7 +80,7 @@ namespace SWE_Projekt
             }
         }
 
-        private void searchButton_Click_1(object sender, EventArgs e)
+        private void searchButton_Click_1(object sender, EventArgs e) // enables the delete button and activates the datagrid with found customer
         {
             Customer.ConnectWithoutMessage();
             List<string>[] list = Customer.FilterCustomerNumberAndEMail(customerNumberUpDown.Text, eMailAddressTextbox.Text);
@@ -91,7 +91,7 @@ namespace SWE_Projekt
             dataGridSearch.Show();
         }
 
-        private void resetButton_Click_1(object sender, EventArgs e)
+        private void resetButton_Click_1(object sender, EventArgs e) //resets the search and also disables the delete button
         {
             eMailAddressTextbox.Enabled = true;
             customerNumberUpDown.Enabled = true;
@@ -103,7 +103,7 @@ namespace SWE_Projekt
             dataGridSearch.ClearSelection();
         }
 
-        private void eMailAddressTextbox_TextChanged(object sender, EventArgs e)
+        private void eMailAddressTextbox_TextChanged(object sender, EventArgs e) //checks Email
         {
             bool checkMail = Controller.CheckEMail(eMailAddressTextbox.Text);
 

@@ -21,7 +21,7 @@ namespace SWE_Projekt
             InitializeComponent();
             
            
-
+            //initialize the datagrid with correct parameters
             dataGridSearch.Columns.Add("0", "Customer Number");
             dataGridSearch.Columns.Add("1", "First Name");
             dataGridSearch.Columns.Add("2", "Last Name");
@@ -33,7 +33,7 @@ namespace SWE_Projekt
             dataGridSearch.Hide();
         }
 
-        private void eMailAddressTextbox_TextChanged(object sender, EventArgs e)
+        private void eMailAddressTextbox_TextChanged(object sender, EventArgs e) //checks input email and changes the backcolor of the textbox accordingly
         {
             bool checkMail=Controller.CheckEMail(eMailAddressTextbox.Text);
 
@@ -48,7 +48,7 @@ namespace SWE_Projekt
             }
         }
 
-        private void searchButton_Click(object sender, EventArgs e)
+        private void searchButton_Click(object sender, EventArgs e)//searches the database after the user with the given criteria and updates datagrid
         {
             Customer.ConnectWithoutMessage();
             List<string>[] list= Customer.FilterCustomerNumberAndEMail(customerNumberUpDown.Text, eMailAddressTextbox.Text);
@@ -59,7 +59,7 @@ namespace SWE_Projekt
             dataGridSearch.Show();
 
         }
-        public void UpdateList(List<string>[] list)
+        public void UpdateList(List<string>[] list)//updates datagrid and gets newest data from database
         {
 
 
@@ -81,7 +81,7 @@ namespace SWE_Projekt
 
         }
 
-        private void resetButton_Click(object sender, EventArgs e)
+        private void resetButton_Click(object sender, EventArgs e) //resets the search and disables the money input
         {
             eMailAddressTextbox.Enabled = true;
             customerNumberUpDown.Enabled = true;
@@ -93,7 +93,7 @@ namespace SWE_Projekt
             dataGridSearch.ClearSelection();
         }
 
-        private void enteredAmountTextbox_TextChanged(object sender, EventArgs e)
+        private void enteredAmountTextbox_TextChanged(object sender, EventArgs e) //checks if the entered string in the textbox is a number
         {
             if (Controller.CheckNumber(enteredAmountTextbox.Text))
             {
@@ -106,7 +106,7 @@ namespace SWE_Projekt
             }
         }
 
-        private void addMoneyButton_Click(object sender, EventArgs e)
+        private void addMoneyButton_Click(object sender, EventArgs e) //adds the money to the customer                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
         {
             if (Controller.CheckNumber(enteredAmountTextbox.Text))
             {

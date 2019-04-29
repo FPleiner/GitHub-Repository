@@ -20,7 +20,7 @@ namespace SWE_Projekt
             InitializeComponent();
         }
 
-        private void createCostumer_Click(object sender, EventArgs e)
+        private void createCostumer_Click(object sender, EventArgs e)//checks if every input is valid and no field is empty and creates new customer if everything is correct
         {
 
             if(string.IsNullOrWhiteSpace(firstNameTextbox.Text)==false && string.IsNullOrWhiteSpace(lastNameTextbox.Text)==false && NC.CheckEMail(eMailAdressTextbox.Text)&&NC.CheckNumber(balanceTextbox.Text)&&string.IsNullOrWhiteSpace(streetNameTextbox.Text)==false&&string.IsNullOrWhiteSpace(houseNumberTextbox.Text)==false&&string.IsNullOrWhiteSpace(postCodeTextbox.Text)==false&&string.IsNullOrWhiteSpace(townTextbox.Text)==false)
@@ -45,7 +45,7 @@ namespace SWE_Projekt
 
         }
 
-        private void eMailAdressTextbox_TextChanged(object sender, EventArgs e)
+        private void eMailAdressTextbox_TextChanged(object sender, EventArgs e) //checks the input email and changes the backcolor accordingly
         {
             bool checkEmail = NC.CheckEMail(eMailAdressTextbox.Text);
 
@@ -63,7 +63,7 @@ namespace SWE_Projekt
                 eMailAdressTextbox.ResetBackColor();
             }
         }
-        private void balanceTextbox_TextChanged(object sender, EventArgs e)
+        private void balanceTextbox_TextChanged(object sender, EventArgs e) 
         {
             
             bool checkNumber = NC.CheckNumber(balanceTextbox.Text);
@@ -98,7 +98,7 @@ namespace SWE_Projekt
 
         }
 
-        private void postCodeTextbox_TextChanged(object sender, EventArgs e)
+        private void postCodeTextbox_TextChanged(object sender, EventArgs e) //checks if the input string is a number and changes the backcolor accordingly
         {
             bool checkNumber = NC.CheckNumber(postCodeTextbox.Text);
 
@@ -119,7 +119,7 @@ namespace SWE_Projekt
             }
         }
 
-        private void houseNumberTextbox_TextChanged(object sender, EventArgs e)
+        private void houseNumberTextbox_TextChanged(object sender, EventArgs e)//checks if the input string is a number and changes the backcolor accordingly
         {
             bool checkNumber = NC.CheckNumber(houseNumberTextbox.Text);
 

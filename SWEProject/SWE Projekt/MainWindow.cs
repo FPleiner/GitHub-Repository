@@ -21,14 +21,16 @@ namespace SWE_Projekt
         public CustomerDataForm(string connectionString)
         {
             InitializeComponent();
+            //searches for the path of the log file
             string path;
             path = Path.GetFullPath("log.txt");
             Console.WriteLine(path);
             
-
+            //formates the datetimepicker in the search criteria
             lastChangeSearchDatetimePicker.Format = DateTimePickerFormat.Custom;
             lastChangeSearchDatetimePicker.CustomFormat = "yyyy-MM-dd";
 
+            //initializes the datagrid with given parameters
             dbDisplay.Columns.Add("0", "Customer Number");
             dbDisplay.Columns.Add("1", "First Name");
             dbDisplay.Columns.Add("2", "Last Name");
@@ -59,7 +61,7 @@ namespace SWE_Projekt
 
         }
 
-        public void UpdateList(List<string> [] list)
+        public void UpdateList(List<string> [] list) //updates the datagrid with the newest data
         {
             
 
@@ -82,7 +84,7 @@ namespace SWE_Projekt
           
         }
 
-        private void newCustomer_Click(object sender, EventArgs e)
+        private void newCustomer_Click(object sender, EventArgs e) //open the new customer window
         {
             Form m = new NewCustomer();
             m.ShowDialog();
@@ -90,7 +92,7 @@ namespace SWE_Projekt
             UpdateList(list);
 
         }
-        private void deleteCustomer_Click(object sender, EventArgs e)
+        private void deleteCustomer_Click(object sender, EventArgs e)//opens the delete customer window
         {
             Form m = new DeleteCustomer();
             m.ShowDialog();
@@ -98,7 +100,7 @@ namespace SWE_Projekt
             UpdateList(list);
         }
 
-
+        //all the filter methods when one of the search criteria textboxes changes its value
         private void customerNumberSearchUpDown_ValueChanged(object sender, EventArgs e)
         {
 
@@ -137,7 +139,7 @@ namespace SWE_Projekt
             UpdateList(list);
         }
 
-        private void resetSearchButton_Click(object sender, EventArgs e)
+        private void resetSearchButton_Click(object sender, EventArgs e)//resets the search and updates the datagrid to view the whole list again
         {
             customerNumberSearchUpDown.Text = "";
             firstNameSearchTextbox.Text = "";
@@ -151,12 +153,12 @@ namespace SWE_Projekt
 
         }
 
-        private void exitButton_Click(object sender, EventArgs e)
+        private void exitButton_Click(object sender, EventArgs e) //closes this window and returns to the login view
         {
             this.Close();
         }
 
-        private void manageMoneyButton_Click(object sender, EventArgs e)
+        private void manageMoneyButton_Click(object sender, EventArgs e)//opens the window to manage the money of customers
         {
             Form m = new ManageMoney();
             m.ShowDialog();
@@ -164,7 +166,7 @@ namespace SWE_Projekt
             UpdateList(list);
         }
 
-        private void editAddressButton_Click(object sender, EventArgs e)
+        private void editAddressButton_Click(object sender, EventArgs e)//opens the window to edit the address of customers
         {
             Form m = new EditAddress();
             m.ShowDialog();

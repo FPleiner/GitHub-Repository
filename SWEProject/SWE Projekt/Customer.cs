@@ -10,12 +10,12 @@ namespace SWE_Projekt
     public class Customer : ICustomer
     {
         private DatabaseConnection connection = new DatabaseConnection();
-        public void ConnectToDatabase(string connectionString)
+        public void ConnectToDatabase(string connectionString) //connects to the given database
         {
             connection.Connect(connectionString);
             
         }
-        public void AddCustomer(string firstName, string lastName, string email, string openBalance, string street,string houseNumber,string postalcode,string town)
+        public void AddCustomer(string firstName, string lastName, string email, string openBalance, string street,string houseNumber,string postalcode,string town) //ads a new customer in the system with the given variables
          {
             //convert the incoming string into decimal number with '.' instead of ',' and 2 digits after the dot.
             openBalance=openBalance.Replace(',', '.');
@@ -34,14 +34,14 @@ namespace SWE_Projekt
 
         }
 
-        public List<String> [] SelectAllCustomer()
+        public List<String> [] SelectAllCustomer() //selects all costumers that are in the system and gives them back as a array of string lists
         {
             List<string>[] list;
             list = connection.Select("select * from customer;");
             return list;
         }
 
-        public void CorrectBalance(string customerNumber,string amount)
+        public void CorrectBalance(string customerNumber,string amount) //takes customer number and entered amount and corrects the open balance according to the sign of the given amount. Where - is money that got payed back and + is additional owed money
         {
             string openBalance=amount;
             if (amount.Contains(',')&&amount.Substring(amount.LastIndexOf(',')).Length > 3)
@@ -70,7 +70,7 @@ namespace SWE_Projekt
             
         }
 
-        public bool CheckBalance(string customerNumber)
+        public bool CheckBalance(string customerNumber) //checks the balance of the customer with the given number. Used to determine if given user can be deleted or not
         {
             List<string>[] list = connection.Select("Select * From customer WHERE CustomerNumber ='" + customerNumber + "';");
             string number = "0";
@@ -90,12 +90,9 @@ namespace SWE_Projekt
         }
 
 
-        public void ChangeCustomer(string customerNumber, string whatToChange, string value)
-        {
-            throw new NotImplementedException();
-        }
+       
 
-        public bool CheckUnique(string eMailAdress)
+        public bool CheckUnique(string eMailAdress) // checks if the entered email address is unique or already used in the system
         {
             connection.ConnectWithoutMessage();
             List<string>[] list = SelectAllCustomer();
@@ -110,26 +107,27 @@ namespace SWE_Projekt
             return true;
         }
 
-        public bool TestConnection(string connectionstring)
+        public bool TestConnection(string connectionstring) //test the given connection
         {
             return connection.TryConnection(connectionstring);
         }
 
-        public void CloseConnection()
+        public void CloseConnection() //close the connection if one is open at the moment
         {
             connection.CloseConnection();
         }
 
-        public void ConnectWithoutMessage()
+        public void ConnectWithoutMessage()//silent connection to the database. Just for safety reasons
         {
             connection.ConnectWithoutMessage();
         }
 
-        public void DeleteCustomer(string costumerNumber)
+        public void DeleteCustomer(string costumerNumber) //delete customer with given number
         {
             connection.Delete("delete from Customer where CustomerNumber = '"+costumerNumber+"';");
         }
 
+        //From here on are all Filter methods. Each of them checks for a different criteria in the shown table of the main window and returns it as a array of lists.
         public List<string>[] FilterCustomerNumber(string criteria)
         {
             List<string>[] list;
@@ -179,6 +177,7 @@ namespace SWE_Projekt
             return list;
         }
 
+        //edits the address of the customer with given number to new address. NO EMPTY FIELDS ALLOWED
         public void EditAddress(string customerNumber, string street, string houseNumber, string postalcode,
             string town)
         {

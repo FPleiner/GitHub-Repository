@@ -18,12 +18,12 @@ namespace SWE_Projekt
         string path;
         public PasswordCheck()
         {
-            
+            //get the path of the log file to write any errors to it
             path = Path.GetFullPath("log.txt");
             InitializeComponent();
         }
 
-        private void button_connect_Click(object sender, EventArgs e)
+        private void button_connect_Click(object sender, EventArgs e) //takes the input strings, builds a connectionstring out of them and tries to connect to the database. If successful window closes and main window opens if not error displayed and 1 out of 3 tries gone
         {
             
             string connectionstring = "SERVER=" + textbox_IPAddress.Text + ";" + "PORT=" + textbox_ServerPort.Text + ";" + "DATABASE=" + textbox_DB_Name.Text + ";" + "UID=" + textbox_dbuser.Text + ";" + "PASSWORD=" + textbox_dbuserpassword.Text + ";";
@@ -54,7 +54,7 @@ namespace SWE_Projekt
             
         }
 
-        private void cancelButton_Click(object sender, EventArgs e)
+        private void cancelButton_Click(object sender, EventArgs e) //exit application
         {
             Application.Exit();
         }

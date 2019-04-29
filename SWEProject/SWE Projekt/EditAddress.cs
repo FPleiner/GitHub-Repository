@@ -19,19 +19,23 @@ namespace SWE_Projekt
                 InitializeComponent();
 
 
-
+                //initializes datagrid with correct parameters
                 dataGridSearch.Columns.Add("0", "Customer Number");
                 dataGridSearch.Columns.Add("1", "First Name");
                 dataGridSearch.Columns.Add("2", "Last Name");
                 dataGridSearch.Columns.Add("3", "Open Balance [€]");
                 dataGridSearch.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
+                streetNameTextbox.Enabled = false;
+                houseNumberTextbox.Enabled = false;
+                postCodeTextbox.Enabled = false;
+                townTextbox.Enabled = false;
 
                
                 dataGridSearch.Hide();
             }
 
-            private void eMailAddressTextbox_TextChanged(object sender, EventArgs e)
+            private void eMailAddressTextbox_TextChanged(object sender, EventArgs e) //changes backcolor of the email textbox wether it is a email or not
             {
                 bool checkMail = Controller.CheckEMail(eMailAddressTextbox.Text);
 
@@ -46,18 +50,23 @@ namespace SWE_Projekt
                 }
             }
 
-            private void searchButton_Click(object sender, EventArgs e)
+            private void searchButton_Click(object sender, EventArgs e) //searches in the database and shows the found result for the given parameters
             {
                 Customer.ConnectWithoutMessage();
                 List<string>[] list = Customer.FilterCustomerNumberAndEMail(customerNumberUpDown.Text, eMailAddressTextbox.Text);
                 UpdateList(list);
                 eMailAddressTextbox.Enabled = false;
                 customerNumberUpDown.Enabled = false;
-                
-                dataGridSearch.Show();
+
+            streetNameTextbox.Enabled = true;
+            houseNumberTextbox.Enabled = true;
+            postCodeTextbox.Enabled = true;
+            townTextbox.Enabled = true;
+
+            dataGridSearch.Show();
 
             }
-            public void UpdateList(List<string>[] list)
+            public void UpdateList(List<string>[] list) //updates datagrid by getting the newest data from the database
             {
                 int count = list[0].Count;
                 dataGridSearch.Rows.Clear();
@@ -79,7 +88,7 @@ namespace SWE_Projekt
 
             }
 
-            private void resetButton_Click(object sender, EventArgs e)
+            private void resetButton_Click(object sender, EventArgs e) //resets the search and disables any changes to the address
             {
                 eMailAddressTextbox.Enabled = true;
                 customerNumberUpDown.Enabled = true;
@@ -89,9 +98,13 @@ namespace SWE_Projekt
                 customerNumberUpDown.Text = "";
                 
                 dataGridSearch.ClearSelection();
-            }
+                streetNameTextbox.Enabled = false;
+                houseNumberTextbox.Enabled = false;
+                postCodeTextbox.Enabled = false;
+                townTextbox.Enabled = false;
+        }
 
-            private void editButton_Click(object sender, EventArgs e)
+            private void editButton_Click(object sender, EventArgs e) //edits the address of the customer by giving the parameters to another function
             {
                 if (string.IsNullOrWhiteSpace(streetNameTextbox.Text) == false &&
                     string.IsNullOrWhiteSpace(houseNumberTextbox.Text) == false &&
