@@ -10,9 +10,9 @@ namespace SWE_Projekt
     public class Customer : ICustomer
     {
         private DatabaseConnection connection = new DatabaseConnection();
-        public void ConnectToDatabase()
+        public void ConnectToDatabase(string connectionString)
         {
-            connection.Connect();
+            connection.Connect(connectionString);
             
         }
         public void AddCustomer(string firstName, string lastName, string email, string openBalance, string street,string houseNumber,string postalcode,string town)

@@ -16,7 +16,7 @@ namespace SWE_Projekt
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CustomerDataForm());
+            Application.Run(new PasswordCheck());
         }
     }
 }

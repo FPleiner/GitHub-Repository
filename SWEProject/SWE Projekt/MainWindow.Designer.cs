@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ConnectionButton = new System.Windows.Forms.Button();
             this.dbDisplay = new System.Windows.Forms.DataGridView();
             this.newCustomer = new System.Windows.Forms.Button();
             this.deleteCustomer = new System.Windows.Forms.Button();
@@ -57,16 +56,6 @@
             this.statusStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // ConnectionButton
-            // 
-            this.ConnectionButton.Location = new System.Drawing.Point(12, 12);
-            this.ConnectionButton.Name = "ConnectionButton";
-            this.ConnectionButton.Size = new System.Drawing.Size(115, 35);
-            this.ConnectionButton.TabIndex = 0;
-            this.ConnectionButton.Text = "Connect";
-            this.ConnectionButton.UseVisualStyleBackColor = true;
-            this.ConnectionButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // dbDisplay
             // 
@@ -240,7 +229,7 @@
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(115, 35);
             this.exitButton.TabIndex = 18;
-            this.exitButton.Text = "Exit";
+            this.exitButton.Text = "Disconnect";
             this.exitButton.UseVisualStyleBackColor = true;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
@@ -299,7 +288,6 @@
             this.Controls.Add(this.dbDisplay);
             this.Controls.Add(this.deleteCustomer);
             this.Controls.Add(this.newCustomer);
-            this.Controls.Add(this.ConnectionButton);
             this.Name = "CustomerDataForm";
             this.Text = "SWE Project";
             ((System.ComponentModel.ISupportInitialize)(this.dbDisplay)).EndInit();
@@ -315,8 +303,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button ConnectionButton;
         private System.Windows.Forms.DataGridView dbDisplay;
         private System.Windows.Forms.Button newCustomer;
         private System.Windows.Forms.Button deleteCustomer;

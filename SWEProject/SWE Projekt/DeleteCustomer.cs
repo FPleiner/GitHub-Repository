@@ -19,7 +19,7 @@ namespace SWE_Projekt
         public DeleteCustomer()
         {
             InitializeComponent();
-            
+            deleteButton.Enabled = false;
             
            
 
@@ -57,18 +57,26 @@ namespace SWE_Projekt
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            if (Customer.CheckBalance(customerNumberUpDown.Text))
+            if (!(customerNumberUpDown.Text == "0"))
             {
-                Customer.DeleteCustomer(customerNumberUpDown.Text);
-                using (StreamWriter log = File.AppendText(path))
+                if (Customer.CheckBalance(customerNumberUpDown.Text))
                 {
-                    log.WriteLine(""+DateTime.Now+" : Customer delete: CustomerNumber = "+customerNumberUpDown.Text+";");
-                    this.Close();
+                    Customer.DeleteCustomer(customerNumberUpDown.Text);
+                    using (StreamWriter log = File.AppendText(path))
+                    {
+                        log.WriteLine("" + DateTime.Now + " : Customer delete: CustomerNumber = " +
+                                      customerNumberUpDown.Text + ";");
+                        this.Close();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("The balance has to be 0 before deleting a customer");
                 }
             }
             else
             {
-                MessageBox.Show("The balance has to be 0 before deleting a customer");
+                MessageBox.Show("Please choose a Customer!");
             }
         }
 
@@ -79,7 +87,7 @@ namespace SWE_Projekt
             UpdateList(list);
             eMailAddressTextbox.Enabled = false;
             customerNumberUpDown.Enabled = false;
-
+            deleteButton.Enabled = true;
             dataGridSearch.Show();
         }
 
@@ -87,7 +95,7 @@ namespace SWE_Projekt
         {
             eMailAddressTextbox.Enabled = true;
             customerNumberUpDown.Enabled = true;
-
+            deleteButton.Enabled = false;
             eMailAddressTextbox.BackColor = default(Color);
             eMailAddressTextbox.Text = "";
             customerNumberUpDown.Text = "";

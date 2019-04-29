@@ -15,10 +15,10 @@ namespace SWE_Projekt
 {
     public partial class CustomerDataForm : Form
     {
-        bool connect = false;
+        
         ICustomer NCustomer = new Customer();
         IController Controller= new Controller();
-        public CustomerDataForm()
+        public CustomerDataForm(string connectionString)
         {
             InitializeComponent();
             string path;
@@ -37,85 +37,28 @@ namespace SWE_Projekt
             dbDisplay.Columns.Add("5", "Last Change");
             dbDisplay.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            toolStripStatusConnectionLabel.BackColor = Color.Red;
-            newCustomer.Enabled = false;
-            deleteCustomer.Enabled = false;
-            customerNumberSearchUpDown.Enabled = false;
-            firstNameSearchTextbox.Enabled = false;
-            lastNameSearchTextbox.Enabled = false;
-            eMailAddressSearchTextbox.Enabled = false;
-            openBalanceSearchUpDown.Enabled = false;
-            lastChangeSearchDatetimePicker.Enabled = false;
-            resetSearchButton.Enabled = false;
-            manageMoneyButton.Enabled = false;
-            deleteCustomer.Enabled = false;
-            editAddressButton.Enabled = false;
+           
+            toolStripStatusConnectionLabel.BackColor = Color.Green;
+            toolStripStatusConnectionLabel.Text = "Connected to database!";
+
+            NCustomer.ConnectToDatabase(connectionString);
+            List<string>[] list = NCustomer.SelectAllCustomer();
+            UpdateList(list);
+
+            newCustomer.Enabled = true;
+            deleteCustomer.Enabled = true;
+            customerNumberSearchUpDown.Enabled = true;
+            firstNameSearchTextbox.Enabled = true;
+            lastNameSearchTextbox.Enabled = true;
+            eMailAddressSearchTextbox.Enabled = true;
+            openBalanceSearchUpDown.Enabled = true;
+            lastChangeSearchDatetimePicker.Enabled = true;
+            resetSearchButton.Enabled = true;
+            manageMoneyButton.Enabled = true;
+            editAddressButton.Enabled = true;
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-            if (ConnectionButton.Text == "Disconnect" && connect == true)
-            {
-                toolStripStatusConnectionLabel.BackColor = Color.Red;
-                toolStripStatusConnectionLabel.Text = "Not Connected! Please connect to the database";
-
-                newCustomer.Enabled = false;
-                deleteCustomer.Enabled = false;
-                customerNumberSearchUpDown.Enabled = false;
-                firstNameSearchTextbox.Enabled = false;
-                lastNameSearchTextbox.Enabled = false;
-                eMailAddressSearchTextbox.Enabled = false;
-                openBalanceSearchUpDown.Enabled = false;
-                lastChangeSearchDatetimePicker.Enabled = false;
-                resetSearchButton.Enabled = false;
-                manageMoneyButton.Enabled = false;
-                editAddressButton.Enabled = false;
-
-                NCustomer.CloseConnection();
-                ConnectionButton.Text = "Connect";
-            }
-
-            if (ConnectionButton.Text == "Connect"&&connect==false)
-            {
-                if (NCustomer.TestConnection("SERVER=127.0.0.1" + ";" + "PORT=3306" + ";" + "DATABASE=mydb" + ";" +
-                                             "UID=admin" + ";" + "PASSWORD=123456" + ";" +
-                                             "convert zero datetime=True" +
-                                             ";"))
-                {
-                    toolStripStatusConnectionLabel.BackColor = Color.Green;
-                    toolStripStatusConnectionLabel.Text = "Connected to database!";
-
-                    NCustomer.ConnectToDatabase();
-                    List<string>[] list = NCustomer.SelectAllCustomer();
-                    UpdateList(list);
-
-                    newCustomer.Enabled = true;
-                    deleteCustomer.Enabled = true;
-                    customerNumberSearchUpDown.Enabled = true;
-                    firstNameSearchTextbox.Enabled = true;
-                    lastNameSearchTextbox.Enabled = true;
-                    eMailAddressSearchTextbox.Enabled = true;
-                    openBalanceSearchUpDown.Enabled = true;
-                    lastChangeSearchDatetimePicker.Enabled = true;
-                    resetSearchButton.Enabled = true;
-                    manageMoneyButton.Enabled = true;
-                    editAddressButton.Enabled = true;
-
-                    ConnectionButton.Text = "Disconnect";
-                }
-                else
-                {
-                    MessageBox.Show(
-                        "Connection not successful! Please ensure that the Database is up and running. If there is still a problem contact the programmer!");
-                }
-            }
-
-            
-            connect = !connect;
-
-        }
         public void UpdateList(List<string> [] list)
         {
             
@@ -210,7 +153,7 @@ namespace SWE_Projekt
 
         private void exitButton_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
         }
 
         private void manageMoneyButton_Click(object sender, EventArgs e)
